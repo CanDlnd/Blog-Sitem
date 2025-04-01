@@ -67,7 +67,6 @@
                             <li>HTML5 & CSS3</li>
                             <li>JavaScript</li>
                             <li>React.js</li>
-                            <li>Vue.js</li>
                             <li>Responsive Tasarım</li>
                             <li>UI/UX Tasarım</li>
                             <li>Git & GitHub</li>
@@ -108,18 +107,31 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2088&q=80"
-                        alt="Task Yönetim Uygulaması" class="project-image">
-                    <div class="project-content">
-                        <h3>Task Yönetim Uygulaması</h3>
-                        <p>Drag & drop özellikli, gerçek zamanlı task yönetim uygulaması. Vue.js ile geliştirildi.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">Tailwind CSS</span>
+                    <div class="project-gallery">
+                        <img src="projectImage/Ezan-Vakti/1.png" alt="Ezan Vakti Müzik Kontrolü"
+                            class="project-image main-image">
+                        <div class="gallery-thumbs">
+                            <img src="projectImage/Ezan-Vakti/1.png" alt="Görünüm 1" class="thumb active">
+                            <img src="projectImage/Ezan-Vakti/2.png" alt="Görünüm 2" class="thumb">
+                            <img src="projectImage/Ezan-Vakti/3.png" alt="Görünüm 3" class="thumb">
+                            <img src="projectImage/Ezan-Vakti/4.png" alt="Görünüm 4" class="thumb">
                         </div>
                     </div>
+                    <div class="project-content">
+                        <h3>Ezan Vakti Müzik Kontrolü</h3>
+                        <p>Ezan vakitlerinde müziği durduran ve bitiminde devam ettiren web uygulaması.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Flask</span>
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">API Entegrasyonu</span>
+                        </div>
+                        <a href="ezan-vakti.html" class="view-project">Projeyi İncele</a>
+                    </div>
                 </div>
+
                 <div class="project-card">
                     <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2088&q=80"
                         alt="Blog Platformu" class="project-image">
@@ -302,6 +314,27 @@
 
             return false;
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".project-card").forEach(project => {
+                const mainImage = project.querySelector(".main-image");
+                const thumbnails = project.querySelectorAll(".thumb");
+
+                thumbnails.forEach(thumb => {
+                    thumb.addEventListener("click", function () {
+                        // Tüm küçük resimlerden "active" sınıfını kaldır (yalnızca ilgili proje için)
+                        thumbnails.forEach(t => t.classList.remove("active"));
+
+                        // Ana görselin src'sini güncelle (yalnızca ilgili proje için)
+                        mainImage.src = this.src;
+
+                        // Seçilen küçük resme "active" sınıfını ekle
+                        this.classList.add("active");
+                    });
+                });
+            });
+        });
+
     </script>
 </body>
 

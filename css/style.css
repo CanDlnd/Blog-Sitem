@@ -664,6 +664,7 @@ section.visible {
 .project-content p {
     color: var(--light-text);
     margin-bottom: 1rem;
+    height: 140px;
 }
 
 .project-tags {
