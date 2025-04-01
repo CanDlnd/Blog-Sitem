@@ -1097,7 +1097,7 @@ footer {
     }
 
     .logo img {
-        height: 65px;
+        height: 150px;
     }
 }
 
@@ -1108,10 +1108,6 @@ footer {
 
     .navbar .container {
         padding: 0.4rem 20px;
-    }
-
-    .logo img {
-        height: 60px;
     }
 
     .hero {
@@ -1270,10 +1266,6 @@ footer {
 
     .navbar .container {
         padding: 0.3rem 15px;
-    }
-
-    .logo img {
-        height: 50px;
     }
 
     .nav-links {
