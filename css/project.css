@@ -1,0 +1,680 @@
+.project-detail {
+    padding: 100px 0 60px;
+    background-color: var(--section-bg);
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-title-wrapper {
+    margin: 2rem 0 1.5rem;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.project-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.project-meta i {
+    color: var(--primary-color);
+}
+
+.project-description {
+    font-size: 1.2rem;
+    color: var(--light-text);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.project-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--section-bg);
+    border-radius: 50px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.project-tag:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.project-tag i {
+    font-size: 1.1rem;
+}
+
+.project-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.site-link,
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.site-link {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.github-link {
+    background-color: #24292e;
+    color: white;
+}
+
+.site-link:hover,
+.github-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-gallery-full {
+    margin-bottom: 4rem;
+}
+
+.gallery-main {
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gallery-main.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    cursor: default;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery-main.active img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    margin: auto;
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.gallery-main:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-main.active .gallery-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+}
+
+.gallery-nav:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.gallery-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    z-index: 10000;
+}
+
+.gallery-main.active .gallery-close {
+    opacity: 1;
+}
+
+.gallery-close:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.gallery-thumbs-full {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+}
+
+.gallery-thumbs-full::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-thumbs-full::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.gallery-thumbs-full::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.gallery-thumbs-full .thumb {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    opacity: 0.7;
+}
+
+.gallery-thumbs-full .thumb:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.gallery-thumbs-full .thumb.active {
+    border-color: var(--primary-color);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Lazy loading animasyonu */
+.gallery-main img,
+.gallery-thumbs-full img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-main img.loaded,
+.gallery-thumbs-full img.loaded {
+    opacity: 1;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+    .project-header {
+        padding: 1.5rem;
+    }
+
+    .project-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .project-meta {
+        gap: 1.5rem;
+    }
+
+    .gallery-main {
+        height: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .project-detail {
+        padding: 100px 0 40px;
+    }
+
+    .project-header {
+        padding: 1.25rem;
+    }
+
+    .project-header h1 {
+        font-size: 2rem;
+    }
+
+    .project-description {
+        font-size: 1.1rem;
+        max-width: 700px;
+    }
+
+    .project-meta {
+        gap: 1rem;
+    }
+
+    .project-meta span {
+        font-size: 0.85rem;
+    }
+
+    .gallery-main {
+        height: 400px;
+    }
+
+    .gallery-thumbs-full .thumb {
+        width: 100px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-detail {
+        padding: 80px 0 30px;
+    }
+
+    .project-header {
+        padding: 1.5rem;
+        margin: 3.5rem 0rem;
+    }
+
+    .project-title-wrapper {
+        margin: 2.5rem 0 1rem;
+    }
+
+    .project-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .project-description {
+        font-size: 1rem;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .project-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .project-tags {
+        gap: 0.8rem;
+    }
+
+    .project-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .project-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .site-link,
+    .github-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .gallery-main {
+        height: 300px;
+    }
+
+    .gallery-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+
+    .gallery-close {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .gallery-thumbs-full {
+        gap: 0.8rem;
+        padding: 0.8rem 0;
+    }
+
+    .gallery-thumbs-full .thumb {
+        width: 90px;
+        height: 60px;
+    }
+
+    .project-info {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .info-section p {
+        font-size: 0.95rem;
+    }
+
+    .info-section ul li {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .back-button {
+        top: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-detail {
+        padding: 70px 0 20px;
+    }
+
+    .project-header {
+        padding: 1.2rem;
+    }
+
+    .project-title-wrapper {
+        margin: 2rem 0 1rem;
+    }
+
+    .project-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+
+    .project-meta span {
+        font-size: 0.8rem;
+    }
+
+    .project-tag {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .gallery-main {
+        height: 250px;
+    }
+
+    .gallery-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .gallery-close {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .gallery-thumbs-full {
+        gap: 0.6rem;
+        padding: 0.6rem 0;
+    }
+
+    .gallery-thumbs-full .thumb {
+        width: 80px;
+        height: 50px;
+    }
+
+    .project-info {
+        padding: 1rem;
+        gap: 1.2rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .info-section p {
+        font-size: 0.9rem;
+    }
+
+    .info-section ul li {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .back-button {
+        left: 1rem;
+        top: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dokunmatik cihazlar için özel stiller */
+@media (hover: none) {
+    .gallery-overlay {
+        opacity: 1;
+    }
+
+    .gallery-nav {
+        opacity: 0.8;
+    }
+
+    .gallery-main.active .gallery-overlay {
+        opacity: 1;
+    }
+}
+
+/* Yatay mod için özel stiller */
+@media (max-height: 600px) and (orientation: landscape) {
+    .gallery-main {
+        height: 300px;
+    }
+
+    .gallery-main.active img {
+        max-height: 80vh;
+    }
+
+    .gallery-thumbs-full {
+        padding: 0.5rem 0;
+    }
+
+    .gallery-thumbs-full .thumb {
+        height: 50px;
+    }
+}
+
+.project-info {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    justify-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.info-section h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+.info-section h2 i {
+    color: var(--primary-color);
+}
+
+.info-section p {
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.info-section ul {
+    list-style: none;
+}
+
+.info-section ul li {
+    color: var(--light-text);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-section ul li i {
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.back-button {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    background-color: var(--section-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+    background-color: var(--primary-color);
+    color: white;
+}
