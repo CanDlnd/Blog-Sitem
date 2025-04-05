@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -76,6 +78,11 @@
             </div>
         </div>
     </section>
+
+
+    <!-- Toast Bildirim Kutusu -->
+    <div id="toast" class="toast">Mesajınız başarıyla gönderilmiştir.</div>
+
 
     <section id="projects" class="projects">
         <div class="container">
@@ -162,7 +169,7 @@
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" id="contactForm" onsubmit="return submitForm(event)">
         <div class="container">
             <h2>İletişim</h2>
             <div class="contact-content">
@@ -319,6 +326,41 @@
                 p.textContent = originalText.substring(0, 70) + '...';
             }
         });
+
+        // Toast bildirimi
+        function submitForm(event) {
+            event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+
+            // Yükleme efekti göster
+            const buttonText = document.querySelector('.button-text');
+            const loader = document.querySelector('.button-loader');
+            buttonText.style.display = 'none';
+            loader.style.display = 'inline-block';
+
+            // Formu "göndermiş gibi" yapmak için simülasyon
+            setTimeout(() => {
+                // Formu sıfırla
+                document.getElementById("contactForm").reset();
+
+                // Toast göster
+                showToast("Mesajınız başarıyla gönderilmiştir.");
+
+                // Yükleme simgesini gizle, buton metnini göster
+                buttonText.style.display = 'inline-block';
+                loader.style.display = 'none';
+            }, 3000);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+
+            // 4 saniye sonra kaybolsun
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 4000);
+        }
 
     </script>
 </body>

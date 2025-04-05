@@ -665,7 +665,8 @@ section.visible {
     color: var(--light-text);
     margin-bottom: 1rem;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* maks 4 satır */
+    -webkit-line-clamp: 4;
+    /* maks 4 satır */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -837,6 +838,7 @@ section.visible {
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
     position: relative;
     min-width: 150px;
+    width: 100%;
 }
 
 .submit-button:hover {
@@ -867,6 +869,34 @@ section.visible {
         transform: rotate(360deg);
     }
 }
+
+/* Toast bildirimi */
+.toast {
+    visibility: hidden;
+    min-width: 280px;
+    background-color: #38579b;
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    padding: 16px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    font-size: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Toast bildirimi bitişi */
 
 .social-links {
     text-align: center;
