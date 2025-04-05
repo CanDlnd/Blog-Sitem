@@ -664,8 +664,12 @@ section.visible {
 .project-content p {
     color: var(--light-text);
     margin-bottom: 1rem;
-    height: 140px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* maks 4 satır */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
+
 
 .project-tags {
     display: flex;
