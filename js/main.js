@@ -1,22 +1,58 @@
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const body = document.body;
 
-hamburger.addEventListener('click', () => {
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    body.style.overflow = body.style.overflow === 'hidden' ? '' : 'hidden';
 });
 
-// Smooth Scrolling for Navigation Links
+// Close mobile menu when clicking on a nav link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.style.overflow = '';
+    });
+});
+
+// Smooth Scrolling için yardımcı fonksiyon
+function smoothScrollTo(target, duration) {
+    const start = window.pageYOffset;
+    const distance = target - start;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // Easing fonksiyonu (easeInOutQuart)
+        const ease = progress < 0.5
+            ? 8 * progress * progress * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 4) / 2;
+
+        window.scrollTo(0, start + (distance * ease));
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    requestAnimationFrame(animation);
+}
+
+// Tüm anchor linkler için smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+            smoothScrollTo(targetPosition, 1200); // 1.2 saniye sürecek
         }
     });
 });
@@ -95,6 +131,39 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
+// Smooth scroll for scroll indicator
+const scrollIndicator = document.querySelector('#scroll-indicator');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetSection = document.querySelector('#about');
+        const startPosition = window.pageYOffset;
+        const targetPosition = targetSection.getBoundingClientRect().top + startPosition;
+        const distance = targetPosition - startPosition;
+        const duration = 1000; // 1 saniye
+        let start = null;
+
+        function animation(currentTime) {
+            if (start === null) start = currentTime;
+            const timeElapsed = currentTime - start;
+            const progress = Math.min(timeElapsed / duration, 1);
+
+            // Easing function (easeInOutCubic)
+            const ease = progress < 0.5
+                ? 4 * progress * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+            window.scrollTo(0, startPosition + (distance * ease));
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        requestAnimationFrame(animation);
+    });
+}
+
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
@@ -156,4 +225,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Rest of your existing code...
-}); 
+});
+
