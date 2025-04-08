@@ -84,7 +84,7 @@ body {
     font-size: 0.9rem;
     transition: var(--transition);
     position: relative;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     text-align: center;
 }
 
