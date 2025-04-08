@@ -3,6 +3,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 :root {
@@ -645,11 +655,14 @@ section.visible {
 }
 
 .project-card {
-    background: white;
-    border-radius: 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    transform-origin: center;
+    backface-visibility: hidden;
+    will-change: transform;
     width: 100%;
     max-width: 400px;
 }
