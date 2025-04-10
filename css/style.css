@@ -551,11 +551,6 @@ section.visible {
     overflow: hidden;
 }
 
-.gradient-bg {
-    position: relative;
-    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-}
-
 .gradient-bg::before {
     content: '';
     position: absolute;
@@ -584,7 +579,7 @@ section.visible {
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.35;
-    animation: patternFloatLeft 20s ease-in-out infinite;
+    animation: patternFloatLeft 5s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
 }
@@ -600,7 +595,7 @@ section.visible {
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.35;
-    animation: patternFloatRight 25s ease-in-out infinite;
+    animation: patternFloatRight 5s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
 }
@@ -647,17 +642,17 @@ section.visible {
 @keyframes patternFloat {
     0% {
         transform: translateY(0) scale(1.05);
-        opacity: 0.2;
+        opacity: 0.4;
     }
 
     50% {
         transform: translateY(-10px) scale(1);
-        opacity: 0.25;
+        opacity: 0.45;
     }
 
     100% {
         transform: translateY(0) scale(1.05);
-        opacity: 0.2;
+        opacity: 0.5;
     }
 }
 
