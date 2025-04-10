@@ -656,6 +656,46 @@ section.visible {
     }
 }
 
+body {
+    font-family: var(--font-family);
+    background: #ffffff;
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../body-pattern.svg');
+    background-position: center;
+    background-size: 250% 250%;
+    background-repeat: repeat;
+    opacity: 0.25;
+    /* animation: bodyPatternFloat 15s ease-in-out infinite; */
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes bodyPatternFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1.1);
+        background-position: 0% 0%;
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1);
+        background-position: 100% 100%;
+    }
+}
+
 .about {
     background: var(--background);
     position: relative;
@@ -1104,7 +1144,7 @@ section.visible {
     background-color: #1a202c;
     color: #f7fafc;
     padding: 4rem 0 2rem;
-    margin-top: 5rem;
+    margin-top: 0rem;
     position: relative;
 }
 
