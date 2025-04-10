@@ -2,11 +2,18 @@
 <svg width="400" height="800" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="fadeGradient" x1="0" y1="0" x2="100%" y2="0">
-      <stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/>
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
       <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
     </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <g fill="url(#fadeGradient)">
+  <g fill="url(#fadeGradient)" filter="url(#glow)">
     <circle cx="50" cy="100" r="20"/>
     <circle cx="150" cy="200" r="15"/>
     <circle cx="80" cy="300" r="25"/>
@@ -15,6 +22,6 @@
     <circle cx="180" cy="600" r="16"/>
     <circle cx="90" cy="700" r="20"/>
   </g>
-  <path d="M0,0 C100,100 150,300 200,400 S300,600 400,800" stroke="rgba(255,255,255,0.05)" fill="none" stroke-width="2"/>
-  <path d="M0,200 C100,300 150,500 200,600 S300,700 400,900" stroke="rgba(255,255,255,0.03)" fill="none" stroke-width="1.5"/>
+  <path d="M0,0 C100,100 150,300 200,400 S300,600 400,800" stroke="rgba(255,255,255,0.08)" fill="none" stroke-width="1"/>
+  <path d="M0,200 C100,300 150,500 200,600 S300,700 400,900" stroke="rgba(255,255,255,0.05)" fill="none" stroke-width="0.8"/>
 </svg>
