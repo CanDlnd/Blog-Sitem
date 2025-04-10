@@ -281,10 +281,7 @@
 
 /* Gradient Backgrounds */
 .gradient-bg {
-    background: linear-gradient(135deg,
-            #27386d 0%,
-            #324282 50%,
-            #27386d 100%);
+    background: linear-gradient(135deg, #08122f 0%, #1a202c 50%, #182343 100%);
     background-size: 200% 200%;
     position: relative;
     overflow: hidden;
