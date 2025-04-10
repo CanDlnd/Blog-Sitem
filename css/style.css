@@ -210,12 +210,13 @@ html {
     margin-bottom: 1rem;
     opacity: 0;
     transform: translateZ(50px);
-    animation: heroTitle 1s cubic-bezier(0.17, 0.85, 0.438, 0.99) forwards;
+    animation: heroTitle 3s cubic-bezier(0.17, 0.85, 0.438, 0.99) ease-in-out;
     background: linear-gradient(45deg, #fff, #a5b4fc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
+    animation-delay: 0.2s;
 }
 
 .banner-content h1::before {
@@ -229,7 +230,7 @@ html {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.5;
-    animation: glitch 5s ease-in-out;
+    animation: glitch 3.5s ease-in-out;
 }
 
 .banner-content p {
@@ -237,9 +238,10 @@ html {
     margin-bottom: 2rem;
     opacity: 0;
     transform: translateZ(30px);
-    animation: heroText 1s cubic-bezier(0.17, 0.85, 0.438, 0.99) forwards 0.5s;
+    animation: heroText 1s cubic-bezier(0.17, 0.85, 0.438, 0.99) ease-in-out 0.5s;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation-delay: 1.2s;
 }
 
 .hero-buttons {
@@ -248,7 +250,8 @@ html {
     justify-content: center;
     opacity: 0;
     transform: translateZ(20px);
-    animation: heroButtons 1s cubic-bezier(0.17, 0.85, 0.438, 0.99) forwards 1s;
+    animation: heroButtons 1s cubic-bezier(0.17, 0.85, 0.438, 0.99) ease-in-out 1s;
+    animation-delay: 1.7s !important;
 }
 
 .cta-button {
@@ -299,11 +302,13 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 0.7;
+    opacity: 0;
     transition: all 0.3s ease;
     cursor: pointer;
     padding: 10px;
     z-index: 999;
+    animation: scrollIndicator 1s forwards;
+    animation-delay: 2.2s;
 }
 
 .scroll-indicator span {
@@ -407,13 +412,37 @@ html {
 }
 
 /* Animations */
-@keyframes fadeInUp {
-    from {
+@keyframes heroTitle {
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
 
-    to {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroText {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroButtons {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
