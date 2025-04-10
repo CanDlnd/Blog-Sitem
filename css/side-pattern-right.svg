@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="800" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fadeGradient" x1="100%" y1="0" x2="0" y2="0">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#fadeGradient)">
+    <circle cx="350" cy="150" r="20"/>
+    <circle cx="250" cy="250" r="15"/>
+    <circle cx="320" cy="350" r="25"/>
+    <circle cx="200" cy="450" r="18"/>
+    <circle cx="280" cy="550" r="22"/>
+    <circle cx="220" cy="650" r="16"/>
+    <circle cx="310" cy="750" r="20"/>
+  </g>
+  <path d="M400,0 C300,100 250,300 200,400 S100,600 0,800" stroke="rgba(255,255,255,0.05)" fill="none" stroke-width="2"/>
+  <path d="M400,200 C300,300 250,500 200,600 S100,700 0,900" stroke="rgba(255,255,255,0.03)" fill="none" stroke-width="1.5"/>
+</svg>
