@@ -769,26 +769,28 @@ body::before {
 .about-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 3rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s ease forwards 0.5s;
+    padding: 0 2rem;
 }
 
 .about-text {
-    max-width: 700px;
-    text-align: center;
+    max-width: 100%;
+    text-align: left;
 }
 
 .about-text p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--light-text);
-    margin-bottom: 2rem;
-    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    text-align: justify;
 }
 
 .skills h3 {
@@ -895,10 +897,11 @@ body::before {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     justify-items: center;
     width: 100%;
+    padding: 0 1rem;
 }
 
 .project-card {
@@ -911,7 +914,8 @@ body::before {
     backface-visibility: hidden;
     will-change: transform;
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
+    height: fit-content;
 }
 
 .project-card:hover {
@@ -921,7 +925,7 @@ body::before {
 
 .project-image {
     width: 100%;
-    height: 250px;
+    height: 180px;
     object-fit: cover;
     transition: var(--transition);
 }
@@ -931,7 +935,7 @@ body::before {
 }
 
 .project-content {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .project-content h3 {
@@ -944,10 +948,12 @@ body::before {
     color: var(--light-text);
     margin-bottom: 1rem;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    /* maks 4 satır */
+    -webkit-line-clamp: 3;
+    /* maks 3 satÄ±r */
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 
@@ -958,8 +964,8 @@ body::before {
 }
 
 .project-tag {
-    background-color: var(--section-bg);
-    color: var(--text-color);
+    background-color: #dfe2e6;
+    color: #6b6e70;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.875rem;
@@ -1328,7 +1334,7 @@ body::before {
     transform: translateY(0);
 }
 
-/* Toast bildirimi bitişi */
+/* Toast bildirimi bitiÅŸi */
 
 .social-links {
     text-align: center;
@@ -1574,7 +1580,7 @@ body::before {
 
 .project-gallery .main-image {
     width: 100%;
-    height: 300px;
+    height: 225px;
     object-fit: cover;
     transition: var(--transition);
 }
@@ -2086,7 +2092,7 @@ body::before {
     }
 }
 
-/* Yatay mod için özel stiller */
+/* Yatay mod iÃ§in Ã¶zel stiller */
 @media (max-height: 600px) and (orientation: landscape) {
     .nav-links {
         top: 60px;
