@@ -16,7 +16,12 @@
 
 </head>
 
-<body>
+<body class="loading">
+    <div id="loader-wrapper">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
@@ -64,10 +69,18 @@
             </div>
             <div class="about-content">
                 <div class="about-text reveal reveal-left">
-                    <p>Frontend geliştirme alanında uzmanlaşan, modern web teknolojilerine ilgi duyan bir yazılımcıyım. HTML, CSS, JavaScript ve çeşitli UI kütüphaneleriyle kullanıcı dostu, performanslı ve erişilebilir web arayüzleri geliştiriyorum.</p>
-                    <p>Bilgisayar Programcılığı bölümü son sınıf öğrencisiyim ve aynı zamanda part-time olarak sektörde aktifim. Kullanıcı deneyimini önceliklendirerek, sade ama işlevsel çözümler üretmeye odaklanıyorum.</p>
-                    <p>Projelerimde genellikle vanilla JS veya hafif framework'lerle çalışmayı tercih ediyorum. "Ezan Vakti" gibi zamanlayıcı tabanlı sistemler ve "Pixel Serpent" gibi tarayıcı tabanlı oyunlar geliştirdim. Web tabanlı uygulama mantığını hem görsel hem de yapısal olarak sağlam temellerle oluşturmayı hedefliyorum.</p>
-                    <p>Amacım, modern yazılım ekiplerinde yer alarak kaliteli ürünler geliştirmek ve her projede kullanıcı deneyimini bir adım ileri taşımak.</p>
+                    <p>Frontend geliştirme alanında uzmanlaşan, modern web teknolojilerine ilgi duyan bir yazılımcıyım.
+                        HTML, CSS, JavaScript ve çeşitli UI kütüphaneleriyle kullanıcı dostu, performanslı ve
+                        erişilebilir web arayüzleri geliştiriyorum.</p>
+                    <p>Bilgisayar Programcılığı bölümü son sınıf öğrencisiyim ve aynı zamanda part-time olarak sektörde
+                        aktifim. Kullanıcı deneyimini önceliklendirerek, sade ama işlevsel çözümler üretmeye
+                        odaklanıyorum.</p>
+                    <p>Projelerimde genellikle vanilla JS veya hafif framework'lerle çalışmayı tercih ediyorum. "Ezan
+                        Vakti" gibi zamanlayıcı tabanlı sistemler ve "Pixel Serpent" gibi tarayıcı tabanlı oyunlar
+                        geliştirdim. Web tabanlı uygulama mantığını hem görsel hem de yapısal olarak sağlam temellerle
+                        oluşturmayı hedefliyorum.</p>
+                    <p>Amacım, modern yazılım ekiplerinde yer alarak kaliteli ürünler geliştirmek ve her projede
+                        kullanıcı deneyimini bir adım ileri taşımak.</p>
                     <div class="skills reveal reveal-right delay-200">
                         <h3>Yeteneklerim</h3>
                         <ul class="hover-lift">
@@ -313,6 +326,22 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
+            // Sayfa yükleme animasyonunu kaldır
+            setTimeout(() => {
+                document.body.classList.remove('loading');
+                
+                // Banner animasyonlarını başlat
+                setTimeout(() => {
+                    document.querySelectorAll('.animate-fade-up').forEach(element => {
+                        element.classList.add('show-animation');
+                    });
+                    
+                    // Loader'ı tamamen kaldır
+                    setTimeout(() => {
+                        document.getElementById('loader-wrapper').style.display = 'none';
+                    }, 800);
+                }, 800);
+            }, 1000);
             document.querySelectorAll(".project-card").forEach(project => {
                 const mainImage = project.querySelector(".main-image");
                 const thumbnails = project.querySelectorAll(".thumb");
