@@ -1181,10 +1181,10 @@ body::before {
     pointer-events: none;
 }
 
-.form-group input:focus ~ label,
-.form-group textarea:focus ~ label,
-.form-group input:not(:placeholder-shown) ~ label,
-.form-group textarea:not(:placeholder-shown) ~ label {
+.form-group input:focus~label,
+.form-group textarea:focus~label,
+.form-group input:not(:placeholder-shown)~label,
+.form-group textarea:not(:placeholder-shown)~label {
     top: -0.7rem;
     left: 1rem;
     font-size: 0.85rem;
@@ -1638,6 +1638,7 @@ body::before {
     list-style: none;
     gap: 2rem;
     margin-left: auto;
+    align-items: center;
 }
 
 /* Responsive Design */
