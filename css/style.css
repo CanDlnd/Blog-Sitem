@@ -1221,7 +1221,7 @@ body::before {
 .form-group label {
     position: absolute;
     left: 1.5rem;
-    top: 1.3rem;
+    top: 1.0rem;
     background: transparent;
     padding: 0 0.5rem;
     color: rgba(255, 255, 255, 0.6);

@@ -329,13 +329,13 @@
             // Sayfa yükleme animasyonunu kaldır
             setTimeout(() => {
                 document.body.classList.remove('loading');
-                
+
                 // Banner animasyonlarını başlat
                 setTimeout(() => {
                     document.querySelectorAll('.animate-fade-up').forEach(element => {
                         element.classList.add('show-animation');
                     });
-                    
+
                     // Loader'ı tamamen kaldır
                     setTimeout(() => {
                         document.getElementById('loader-wrapper').style.display = 'none';
