@@ -325,6 +325,52 @@
             return false;
         }
 
+        // Reveal animasyonlarını yönet
+        function handleRevealAnimations() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementBottom = el.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100 && elementBottom > 0) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+        }
+
+        // Menü linklerine tıklandığında animasyonları tetikle
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    // Önce tüm reveal sınıflarını sıfırla
+                    targetSection.querySelectorAll('.reveal').forEach(el => {
+                        el.classList.remove('active');
+                    });
+
+                    // Smooth scroll
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                    // Animasyonları kısa bir gecikmeyle tetikle
+                    setTimeout(() => {
+                        targetSection.querySelectorAll('.reveal').forEach(el => {
+                            el.classList.add('active');
+                        });
+                    }, 100);
+                }
+            });
+        });
+
+        // Scroll olayında reveal animasyonlarını kontrol et
+        window.addEventListener('scroll', handleRevealAnimations);
+        window.addEventListener('load', handleRevealAnimations);
+
         document.addEventListener("DOMContentLoaded", function () {
             // Sayfa yükleme animasyonunu kaldır
             setTimeout(() => {

@@ -75,6 +75,34 @@
     }
 }
 
+/* Reveal Animations */
+.reveal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.reveal-up:not(.active) {
+    transform: translateY(50px);
+}
+
+.reveal-left:not(.active) {
+    transform: translateX(-50px);
+}
+
+.reveal-right:not(.active) {
+    transform: translateX(50px);
+}
+
+.reveal-scale:not(.active) {
+    transform: scale(0.85);
+}
+
 /* Animation Classes */
 .animate-fade-up {
     opacity: 0;
